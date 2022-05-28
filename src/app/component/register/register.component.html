@@ -1,0 +1,70 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="main" fxFlex>
+    <div fxLayout="row" fxLayoutAlign="center center" class="mainContainer">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="container1">
+                <div>
+                    <h3 style="font-size: 30px; font-style: inherit">
+                        <span style="color: rgb(44, 44, 230)">F</span>
+                        <span style="color: rgb(216, 65, 65)">u</span>
+                        <span style="color: rgb(219, 154, 32)">n</span>
+                        <span style="color: rgb(46, 46, 128)">d</span>
+                        <span style="color: rgb(72, 177, 72)">o</span>
+                        <span style="color: rgb(141, 17, 17)">o</span>
+                    </h3>
+                   
+                </div>
+                <div style="margin-bottom: 20px;"> <span style="font-size: 20px;">Create your Google account</span></div>
+                <div fxLayout="row" fxLayoutGap="20px" fxLayout.xs="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="firstName" matInput placeholder="" />
+                        <mat-error>Enter first name</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input formControlName="lastName" matInput placeholder="" />
+                        <mat-error>Enter last name</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center " >
+                    <mat-form-field appearance="outline" >
+                        <mat-label>your email address</mat-label>
+                        <input formControlName="email" matInput placeholder="" />
+                        <mat-error>Enter email</mat-error>
+                        <mat-hint>you need to confirm that this email is belong to you</mat-hint>
+                        
+                    </mat-form-field>
+                    
+                </div>
+                <a mat-button color="primary">Creat new Gmail address instead</a>
+                <div fxLayout="row" fxLayoutGap="20px" fxLayout.xs="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>password</mat-label>
+                        <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="" />
+                        <mat-error>Enter password</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>confirm password</mat-label>
+                        <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" placeholder="" />
+                        <mat-error>Enter password again</mat-error>
+                    </mat-form-field>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <mat-hint>Use 8 or more charector with mix of letters,number & symbol</mat-hint>
+                </div>
+                <div>
+                    <mat-checkbox class="example-margin" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">Show password</mat-checkbox>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-button color="primary">Sing in instead</button>
+                    <button mat-raised-button color="primary">Create</button>
+                </div>
+
+            </div>
+        </form>
+        <div class="container2" fxLayout="column" fxHide.xs="true" >
+            <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="img" />
+            <span style="text-align: center;">One account. All of Google working for you.</span>
+        </div>
+    </div>
+</div>

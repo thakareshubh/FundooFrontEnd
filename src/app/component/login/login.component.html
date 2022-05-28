@@ -1,0 +1,50 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="main" fxFlex>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="container1">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h3 style="font-size: 30px; font-style: inherit">
+                    <span style="color: rgb(44, 44, 230)">F</span>
+                    <span style="color: rgb(216, 65, 65)">u</span>
+                    <span style="color: rgb(219, 154, 32)">n</span>
+                    <span style="color: rgb(46, 46, 128)">d</span>
+                    <span style="color: rgb(72, 177, 72)">o</span>
+                    <span style="color: rgb(141, 17, 17)">o</span>
+                </h3>
+                <h2 style="margin-top: -10px;">Sing in</h2>
+                <span style="font-size: 17px; ">Use your Google Account</span>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div fxLayout="column" fxLayoutAlign="start center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>email or phone</mat-label>
+                        <input formControlName="email" matInput placeholder="" />
+                        <mat-hint>you need to confirm that this email is belong to you</mat-hint>
+                        <mat-error>Enter email</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>password</mat-label>
+                        <input formControlName="password" matInput placeholder="" />
+                        <mat-hint>Enter valid password</mat-hint>
+                        <mat-error>Enter password</mat-error>
+                    </mat-form-field>
+
+
+                </div>
+                <div>
+                    <button mat-button color="primary" style="margin-top: 10px;">Forget email?</button>
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="center start">
+                    <mat-hint>Not your computer? Use Guest to sing in privately</mat-hint>
+                    <a href="#" style="margin-top: 30px;margin-bottom: 20px;">Learn more</a>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-button color="primary">Create account</button>
+                    <button mat-raised-button color="primary">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
