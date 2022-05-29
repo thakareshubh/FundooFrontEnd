@@ -1,20 +1,23 @@
 
-import { environment } from 'src/environments/environment';
+
+
 import{HttpClient} from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServicesService {
 
-Baseurl:environment.baseUrl;
+baseurl=environment.baseUrl;
 
-  constructor( private httpClient:HttpClient) { }
+  constructor( private httpClient : HttpClient) { }
 
-  postservices(url:string,redata:any,token: boolean=false,httpOptions:any={})
+  postservices(url:string, reqdata:any, token: boolean=false, httpOptions:any={})
   {
-    return this.httpClient.post(this.Baseurl=url,token && httpOptions )
+    return this.httpClient.post(this.baseurl+url,reqdata,token && httpOptions );
   }
+  
 }

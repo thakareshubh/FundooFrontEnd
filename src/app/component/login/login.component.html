@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="main" fxFlex>
-    <div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" class="mainContainer">
         <div class="container1">
             <div fxLayout="column" fxLayoutAlign="center center">
                 <h3 style="font-size: 30px; font-style: inherit">
@@ -31,16 +31,16 @@
 
                 </div>
                 <div>
-                    <button mat-button color="primary" style="margin-top: 10px;">Forget email?</button>
+                    <button mat-button color="primary" style="margin-top: 10px;" routerLink="/resetPassword">Forget password?</button>
                 </div>
 
                 <div fxLayout="column" fxLayoutAlign="center start">
                     <mat-hint>Not your computer? Use Guest to sing in privately</mat-hint>
-                    <a href="#" style="margin-top: 30px;margin-bottom: 20px;">Learn more</a>
+                    <a href="https://support.google.com/accounts/answer/41078?hl=en&utm_source=google-account&utm_medium=home-support-panel" style="margin-top: 30px;margin-bottom: 20px;">Learn more</a>
                 </div>
 
                 <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <button mat-button color="primary">Create account</button>
+                    <button mat-button color="primary" routerLink="/resister">Create account</button>
                     <button mat-raised-button color="primary">Next</button>
                 </div>
             </form>

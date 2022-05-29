@@ -1,21 +1,50 @@
 import { HttpServicesService } from './../httpServices/http-services.service';
+
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserServicesService {
+  constructor(private httpService: HttpServicesService) {}
 
-  constructor(private httpService:HttpServicesService) { }
-  register(reqdata:any){
+  //Register section
+  register(reqdata: any) {
     console.log(reqdata);
 
     let header = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.httpService.postservices( 'User/AddUser', reqdata, false, header );
   }
-  return this.httpService.postservices('User/AddUser',reqdata,false,header)
-}
+  //login section
+  login(reqdata: any) {
+    console.log(reqdata);
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.httpService.postservices( 'User/LoginUser/${reqdata.email}/${reqdata.password}', reqdata, true, header );
+    
+
+  }
+  //forget section
+  forgetPassword(reqdata: any) {
+    console.log(reqdata);
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.httpService.postservices(  'User/ForgetPassword',  reqdata,  true,  header);
+    
+
+  }
+ 
 }

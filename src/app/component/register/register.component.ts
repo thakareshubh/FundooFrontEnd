@@ -1,7 +1,7 @@
 import { UserServicesService } from './../../services/userServices/user-services.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-register',
@@ -11,12 +11,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
-  hide = true;
+  hide:boolean = true;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private user: UserServicesService
-  ) {}
+  constructor(private formBuilder: FormBuilder,private user: UserServicesService,) {};
+
+ 
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -27,26 +26,30 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  get f() {
-    return this.registerForm.controls;
-  }
+  
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.registerForm.valid) {
-      let reqData = {
+      let reqdata = {
         firstName: this.registerForm.value.firstName,
         lastName: this.registerForm.value.lastName,
         email: this.registerForm.value.email,
         password: this.registerForm.value.password,
       };
-      this.user.register(reqData).subscribe((response: any) => {
+      this.user.register(reqdata).subscribe((response:any)=>{
         console.log(response);
+         
+      
       });
+      
 
       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
     }
+  }
+  ShowPassword(){
+    this.hide = !this.hide;            
   }
 }
