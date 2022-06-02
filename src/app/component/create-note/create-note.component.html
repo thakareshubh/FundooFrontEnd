@@ -1,0 +1,36 @@
+<div  fxLayout="row" fxLayoutAlign="center center" style="margin-top: 30px; margin-left: 20px; " fxFlex>
+    <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+            <div style="height: 30px; padding: 10px 15px; font-size: medium;" (click)="hideAndShow()"
+                *ngIf="show || !show">
+                <div fxLayout="row">
+                    <input formControlName="title" type="text" class="input" placeholder="Title">
+                    <img *ngIf="show" src="./../../../assets/pin.svg" alt="" style="padding-left: 60px;">
+                    <div class="secondimg"  *ngIf=" !show">
+                        <img src="./../../../assets/newList.svg">
+                        <img src="../../../assets/newnote.svg">
+                        <img src="../../../assets/imgicon.svg">
+                    </div>
+                </div>
+
+            </div>
+            <div style="height: 30px; padding: 10px 15px; font-size: medium;" *ngIf="show">
+                <input formControlName="description" type="text" #txt class="input" placeholder="Take note...">
+
+            </div>
+
+
+            <div style="padding-right: 40px; font-size: medium; " fxLayout="row" fxLayoutAlign="space-between center" *ngIf="show">
+                <div >
+                    <app-icon></app-icon>
+                </div>
+
+                <div>
+                    <button mat-button style="padding-left: 20px;"   >close</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>

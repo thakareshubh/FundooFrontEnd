@@ -13,7 +13,21 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HomePageComponent } from './component/home-page/home-page.component'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+import { GetAllNoteComponent } from './component/get-all-note/get-all-note.component';
+import { DisplayComponent } from './component/display/display.component';
+import { IconComponent } from './component/icon/icon.component';
+import { CreateNoteComponent } from './component/create-note/create-note.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+
+
 
 
 
@@ -24,7 +38,12 @@ import { HttpClientModule } from '@angular/common/http'
     RegisterComponent,
     LoginComponent,
     ForgetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    HomePageComponent,
+    GetAllNoteComponent,
+    DisplayComponent,
+    IconComponent,
+    CreateNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +53,8 @@ import { HttpClientModule } from '@angular/common/http'
     MatButtonModule,
     FlexLayoutModule,FormsModule,
     ReactiveFormsModule,BrowserAnimationsModule,
-    MatInputModule,
-    HttpClientModule
+    MatInputModule,MatNativeDateModule,MatIconModule,
+    HttpClientModule,MatSidenavModule,MatToolbarModule,MatListModule,MatCardModule,MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,10 +12,11 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   submitted = false;
-  hide=true;
+  hide:boolean=true;
+  token:any;
 
-  constructor(private formBuilder: FormBuilder, private user:UserServicesService,) { }
-
+  constructor(private formBuilder: FormBuilder, private user:UserServicesService,) {this.token=localStorage.getItem("token"); }
+  
  
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
           password: ['', [Validators.required, Validators.minLength(6)]],
           
       });
-  } get f() { return this.loginForm.controls; }
+  } 
 
   onSubmit() {
       this.submitted = true;
@@ -37,10 +38,11 @@ export class LoginComponent implements OnInit {
           }
           this.user.login(reqdata).subscribe((response:any)=>{
             console.log(response);
+            localStorage.setItem("token",response.data);
           })
       }
 
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value))
+      // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value))
   }
     
 

@@ -7,7 +7,10 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserServicesService {
-  constructor(private httpService: HttpServicesService) {}
+  token: any;
+  constructor(private httpService: HttpServicesService) {
+    this.token = localStorage.getItem('token');
+  }
 
   //Register section
   register(reqdata: any) {
@@ -15,10 +18,15 @@ export class UserServicesService {
 
     let header = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json-patch+json',
       }),
     };
-    return this.httpService.postservices( 'User/AddUser', reqdata, false, header );
+    return this.httpService.postservices(
+      `User/AddUser`,
+      reqdata,
+      false,
+      header
+    );
   }
   //login section
   login(reqdata: any) {
@@ -26,14 +34,17 @@ export class UserServicesService {
 
     let header = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json-patch+json',
       }),
     };
-    return this.httpService.postservices( 'User/LoginUser/${reqdata.email}/${reqdata.password}', reqdata, true, header );
-    
-
+    return this.httpService.postservices(
+      `User/Login?email=${reqdata.email}&password=${reqdata.password}`,
+      reqdata,
+      false,
+      header
+    );
   }
-  //forget section
+  //forget password api  section
   forgetPassword(reqdata: any) {
     console.log(reqdata);
 
@@ -42,9 +53,27 @@ export class UserServicesService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.httpService.postservices(  'User/ForgetPassword',  reqdata,  true,  header);
-    
-
+    return this.httpService.postservices(
+      `User/ForgotPassword/${reqdata.email}`,
+      reqdata,
+      false,
+      header
+    );
   }
- 
+  //reset password
+  resetPassword(reqdata: any, token: any) {
+    console.log(reqdata);
+    let headerOption = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json-patch+json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+    return this.httpService.putservices(
+      `User/ResetPassword`,
+      reqdata,
+      true,
+      headerOption
+    );
+  }
 }

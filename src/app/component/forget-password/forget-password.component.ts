@@ -11,7 +11,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   forgetPasswordForm!: FormGroup;
   submitted = false;
-  hide=true;
+  
 
   constructor(private formBuilder: FormBuilder,private user:UserServicesService,private router: Router) { }
 
@@ -22,7 +22,7 @@ export class ForgetPasswordComponent implements OnInit {
           
           
       });
-  } get f() { return this.forgetPasswordForm.controls; }
+  }// get f() { return this.forgetPasswordForm.controls; }
 
   onSubmit() {
       this.submitted = true;
@@ -38,7 +38,7 @@ export class ForgetPasswordComponent implements OnInit {
         })
     }
 
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.forgetPasswordForm.value))
+      // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.forgetPasswordForm.value))
   }
     
 

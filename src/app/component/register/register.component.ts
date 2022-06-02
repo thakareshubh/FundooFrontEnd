@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
   hide:boolean = true;
+  
 
   constructor(private formBuilder: FormBuilder,private user: UserServicesService,) {};
 
