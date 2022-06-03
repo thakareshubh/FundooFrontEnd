@@ -8,6 +8,7 @@ import { HttpServicesService } from '../httpServices/http-services.service';
 
 export class NoteServiceService {
   token : any;
+  
   constructor(private httpService: HttpServicesService) {
     this.token=localStorage.getItem("token")
   }
@@ -38,6 +39,19 @@ export class NoteServiceService {
     };
     return this.httpService.getService('Note/GetAllNotes', true, head)
   }
+  //updateNote
+  updatenote(reqdata: any,noteId:any) {
+    console.log(reqdata);
 
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json-patch+json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.putservices( `Note/UpdateNote/${noteId}`, reqdata, true,header );
+  }
   
 }

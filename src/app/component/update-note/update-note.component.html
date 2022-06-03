@@ -1,0 +1,28 @@
+<!-- <div>
+    <input type="text" [(ngModel)]="title">
+</div>
+<div>
+    <input type="text" [(ngModel)]="description">
+</div> -->
+
+
+
+<div>
+    
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <textarea type="text" [(ngModel)]="updateTitle"></textarea>
+
+            <img src="./../../../assets/pin.svg" alt="" style=" width: 20px;height: 20px;">
+        </div>
+        <div>
+            <textarea type="text" [(ngModel)]="updateDescription"></textarea>
+
+        </div>
+
+
+        <div fxLayout="row" fxLayoutAlign="space-between" style="padding-left: -20px;">
+            <app-icon></app-icon>
+            <button mat-button (click)="onSubmit()">close</button>
+        </div>
+    
+</div>

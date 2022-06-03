@@ -1,14 +1,18 @@
 
-<mat-card style="width:250px;height:80px;background-color:rgb(198, 198, 227);margin: 20px;" >
+<div fxLayout="row" fxLayout="row wrap" style="width: 1000px;"   fxFlex >
+<mat-card  class="displayNote" *ngFor="let noteArr of GetNote">
 <div>
 
-    <div>
-        title
+    <div fxLayout="row" fxLayoutAlign="space-between" (click)="openDialog(noteArr)">
+        {{noteArr.title}}
+        <img src="./../../../assets/pin.svg" alt="" style=" width: 20px;height: 20px;">
     </div>
-    <div>
-        description
-    </div>
+    <div (click)="openDialog(noteArr)" style="margin-top: 10px;">
+        {{noteArr.description}}
+    </div><br>
+
 
     <div style="padding-left: -20px;"> <app-icon></app-icon></div>
 </div>
 </mat-card>
+</div>

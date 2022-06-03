@@ -1,8 +1,7 @@
-<div fxLayout="row" fxFlex="100">
+<div fxLayout="row-wrap" style="width: 1200px;"   class="mainContainer">
     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center"
-                fxFlex>
+            <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
                 <div fxLayout="row" fxLayoutAlign="space-between center">
                     <button mat-icon-button (click)="snav.toggle()" style="color: rgb(61, 58, 58);">
                         <mat-icon>menu</mat-icon>

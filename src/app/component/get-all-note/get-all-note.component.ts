@@ -8,7 +8,7 @@ import { NoteServiceService } from 'src/app/services/NoteService/note-service.se
 })
 export class GetAllNoteComponent implements OnInit {
   
-  notes: any= [];
+  notesArray:any;
   constructor(private GetAllNote: NoteServiceService) { }
 
   ngOnInit(): void {
@@ -17,7 +17,7 @@ export class GetAllNoteComponent implements OnInit {
 
   getAllNotes() {    
     this.GetAllNote.getNoteList().subscribe( (response: any) => {
-        this.notes = response;
+        this.notesArray = response.data;
         console.log(response);
        
       })

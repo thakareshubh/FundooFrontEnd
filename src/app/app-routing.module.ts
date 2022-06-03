@@ -6,17 +6,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
-
+import { AuthguardnameGuard } from './authguardname.guard';
 
 
 const routes: Routes = [
+  {path:'' ,redirectTo:"/login" ,pathMatch:'full'},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'resetPassword/:token',component:ResetPasswordComponent},
   {path:'forgetPassword',component:ForgetPasswordComponent},
-  {path:'homePage',component: HomePageComponent,
+  {path:'homePage',component: HomePageComponent,canActivate:[AuthguardnameGuard],
     children:[{path:'getAllNotes',component:GetAllNoteComponent}]},
-
+  // {path:'homePage',component:HomePageComponent,canActivate:[AuthguardnameGuard]},
 ];
 
 @NgModule({

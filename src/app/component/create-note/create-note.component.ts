@@ -14,6 +14,7 @@ export class CreateNoteComponent implements OnInit {
   noteForm!: FormGroup;
   submitted = false;
   token:any;
+  
 
   constructor( private activatedRoute:ActivatedRoute,private notes:NoteServiceService,private formBuilder: FormBuilder,) { }
 
@@ -30,7 +31,7 @@ export class CreateNoteComponent implements OnInit {
     this.show=!this.show
   }
   onSubmit() {
-    this.submitted = true;
+    
 
     // stop here if form is invalid
     if (this.noteForm.valid) {

@@ -26,7 +26,9 @@ import { IconComponent } from './component/icon/icon.component';
 import { CreateNoteComponent } from './component/create-note/create-note.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { AuthgaurdServicesService } from './services/GaurdServices/authgaurd-services.service';
+import { UpdateNoteComponent } from './component/update-note/update-note.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -43,7 +45,8 @@ import {MatMenuModule} from '@angular/material/menu';
     GetAllNoteComponent,
     DisplayComponent,
     IconComponent,
-    CreateNoteComponent
+    CreateNoteComponent,
+    UpdateNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +58,11 @@ import {MatMenuModule} from '@angular/material/menu';
     ReactiveFormsModule,BrowserAnimationsModule,
     MatInputModule,MatNativeDateModule,MatIconModule,
     HttpClientModule,MatSidenavModule,MatToolbarModule,MatListModule,MatCardModule,MatMenuModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    AuthgaurdServicesService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
