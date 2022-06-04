@@ -10,11 +10,7 @@ export class HomePageComponent implements OnInit {
   mobileQuery: MediaQueryList;
   
 
-  // fillerContent = Array.from(
-  //   { length: 50 },
-  //   () =>
-  //     ``
-  // );
+ 
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
@@ -26,4 +22,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
+  
+
 }

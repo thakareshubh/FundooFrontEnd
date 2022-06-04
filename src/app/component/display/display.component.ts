@@ -8,7 +8,8 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  @Input()GetNote : any;
+  @Input()GetNote: any=[];
+  
   constructor(public dialog: MatDialog) { }
   
   ngOnInit(): void {

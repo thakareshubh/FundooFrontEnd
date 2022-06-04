@@ -29,6 +29,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { AuthgaurdServicesService } from './services/GaurdServices/authgaurd-services.service';
 import { UpdateNoteComponent } from './component/update-note/update-note.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TrashNoteComponent } from './component/trash-note/trash-note.component';
+import { ArchieveComponent } from './component/archieve/archieve.component';
+
 
 
 
@@ -46,7 +49,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     DisplayComponent,
     IconComponent,
     CreateNoteComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    TrashNoteComponent,
+    ArchieveComponent,
+    
   ],
   imports: [
     BrowserModule,

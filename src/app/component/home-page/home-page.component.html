@@ -1,7 +1,7 @@
-<div fxLayout="row-wrap" style="width: 1200px;"   class="mainContainer">
+<div  style="width: 1200px;" class="mainContainer" fxFlex>
     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
+        
+            <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
                 <div fxLayout="row" fxLayoutAlign="space-between center">
                     <button mat-icon-button (click)="snav.toggle()" style="color: rgb(61, 58, 58);">
                         <mat-icon>menu</mat-icon>
@@ -51,18 +51,20 @@
                     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
                         <img src="./../../../assets/appslogo.png" alt="img" class="icon">
                     </button>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <img src="./../../../assets/account_circle_1.png" alt="img" class="icon">
-                    </button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>notifications_off</mat-icon>
-                            <span>Logout</span>
+                    <div>
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <img src="./../../../assets/account_circle_1.png" alt="img" class="icon">
                         </button>
-                    </mat-menu>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                <mat-icon>notifications_off</mat-icon>
+                                <span>Logout</span>
+                            </button>
+                        </mat-menu>
+                    </div>
                 </div>
             </mat-toolbar>
-        </div>
+       
 
         <mat-sidenav-container class="example-sidenav-container">
             <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" class="exampleSide">
@@ -94,7 +96,7 @@
                     <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;">
 
                         <mat-nav-list>
-                            <a mat-list-item routerLink=".">
+                            <a mat-list-item routerLink="./archieve">
                                 <img src="./../../../assets/archive_.png" alt="img" class="icon"> Archieve
                             </a>
                         </mat-nav-list>
@@ -102,7 +104,7 @@
                     <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;">
 
                         <mat-nav-list>
-                            <a mat-list-item routerLink=".">
+                            <a mat-list-item routerLink="./trash">
                                 <img src="./../../../assets/delete.png" alt="img" class="icon">Trash
                             </a>
                         </mat-nav-list>

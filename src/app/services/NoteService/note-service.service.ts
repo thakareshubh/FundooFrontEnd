@@ -53,5 +53,52 @@ export class NoteServiceService {
     };
     return this.httpService.putservices( `Note/UpdateNote/${noteId}`, reqdata, true,header );
   }
-  
+
+  //delete note
+
+  deleteNote(reqdata: any,noteId:any) {
+    console.log(reqdata,noteId);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json-patch+json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.putservices( `Note/Trash/${noteId}`, reqdata, true,header );
+  }
+
+  //Alltrash
+  getAllNotesservice() {
+
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization':  'Bearer ' + this.token		
+      })
+
+    }
+    
+    return this.httpService.getService(`Note/GetAllNotes`,true,header)
+    
+  }
+  //archieve note
+  archieveNote(reqdata: any,noteId:any) {
+    console.log(reqdata,noteId);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json-patch+json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.putservices( `Note/ArchiveNote/?noteId=${noteId}`, reqdata, true,header );
+  }
 }

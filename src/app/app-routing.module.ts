@@ -1,3 +1,4 @@
+import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { GetAllNoteComponent } from './component/get-all-note/get-all-note.component';
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
@@ -7,6 +8,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { AuthguardnameGuard } from './authguardname.guard';
+import { ArchieveComponent } from './component/archieve/archieve.component';
 
 
 const routes: Routes = [
@@ -15,9 +17,14 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'resetPassword/:token',component:ResetPasswordComponent},
   {path:'forgetPassword',component:ForgetPasswordComponent},
-  {path:'homePage',component: HomePageComponent,canActivate:[AuthguardnameGuard],
-    children:[{path:'getAllNotes',component:GetAllNoteComponent}]},
-  // {path:'homePage',component:HomePageComponent,canActivate:[AuthguardnameGuard]},
+ 
+  {path:'homePage',component: HomePageComponent,
+    children:
+           [{path:'getAllNotes',component:GetAllNoteComponent},
+           {path:'trash',component:TrashNoteComponent},
+           {path:'archieve',component:ArchieveComponent},
+          ]},
+  {path:'homePage',component:HomePageComponent,canActivate:[AuthguardnameGuard]},
 ];
 
 @NgModule({

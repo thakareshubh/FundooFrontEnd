@@ -7,7 +7,7 @@ import { NoteServiceService } from 'src/app/services/NoteService/note-service.se
   styleUrls: ['./get-all-note.component.scss']
 })
 export class GetAllNoteComponent implements OnInit {
-  
+  noteList=[];
   notesArray:any;
   constructor(private GetAllNote: NoteServiceService) { }
 
@@ -19,8 +19,11 @@ export class GetAllNoteComponent implements OnInit {
     this.GetAllNote.getNoteList().subscribe( (response: any) => {
         this.notesArray = response.data;
         console.log(response);
+        // this.noteList.reverse();
+        this.noteList = this.noteList.filter((object: any) => {
+        return object.isTrash=== false && object.isArchieve === false
        
       })
-    }
+    })
+  }
 }
-

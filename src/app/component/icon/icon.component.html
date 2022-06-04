@@ -1,10 +1,24 @@
-<div fxlatout="row"fxLayoutAlign="start center"  style="padding-left:-30px">
+<div fxlatout="row wrap"fxLayoutAlign="start center"  style="padding-left:-30px">
     <img src="./../../../assets/titlebel.svg" >
     <img src="./../.././../assets/plussicon.svg" >
     <img src="./../../../assets/color.svg" >
     <img src="../../../assets/imgicon.svg" >
-    <img src="../../.././assets/archive_.png"  >
-    <img src="../.././../assets/more.svg"  >
+
+    <img src="../../.././assets/archive_.png"  (click)="archieve()">
+    
     <!-- <img src="./../../../assets/undo.svg" >
     <img src="./../../../assets/redo.svg" alt="img"> -->
+    <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <img mat-icon-button [matMenuTriggerFor]="menu"  src="../.././../assets/more.svg"  >
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item style="margin-top: -20px;padding: -20px;" (click)="Deletenote()"> Delete note</button>
+            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Add Label</button>
+            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Add Drawing</button>
+            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Make a Copy</button>
+            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Show a checkbox</button>
+            <button mat-menu-item style="margin-top: -10px;padding: -20px;"> Copy to Google Docs</button>
+        </mat-menu>
+    </div>
 </div>
