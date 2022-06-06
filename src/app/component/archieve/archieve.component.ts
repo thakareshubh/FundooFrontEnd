@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ArchieveComponent implements OnInit {
 
-  archiveList: any;
+  archiveList: any=[];
   
 
   constructor(public dialog: MatDialog, private noteService: NoteServiceService) { }
@@ -20,13 +20,14 @@ export class ArchieveComponent implements OnInit {
   getArchiveList() {
     this.noteService.getAllNotesservice().subscribe((res: any) => {
       console.log(res.data);
-       this.archiveList=res.data
-       this.archiveList = res.data.filter((object: any) => {
+       this.archiveList=res.data;
+       this.archiveList.reverse();
+       this.archiveList = this.archiveList.filter((object: any) => {
         return object.isArchieve === true;
       })
      
-    })
+    });
 
-    }
+  }
 
 }

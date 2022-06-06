@@ -56,19 +56,22 @@ export class NoteServiceService {
 
   //delete note
 
-  deleteNote(reqdata: any,noteId:any) {
-    console.log(reqdata,noteId);
+  deleteNote(reqdata: any) {
+    console.log(reqdata);
     
 
     let header = {
       headers: new HttpHeaders({
         
-        'Content-Type': 'application/json-patch+json',
+        'Content-Type': 'application/json',
         'Authorization' : 'Bearer '+ this.token,
 
       }),
+      
     };
-    return this.httpService.putservices( `Note/Trash/${noteId}`, reqdata, true,header );
+    console.log("ganya",reqdata)
+    return this.httpService.putservices( `Note/Trash/${reqdata.noteId}`, reqdata, true,header );
+    
   }
 
   //Alltrash
@@ -100,5 +103,41 @@ export class NoteServiceService {
       }),
     };
     return this.httpService.putservices( `Note/ArchiveNote/?noteId=${noteId}`, reqdata, true,header );
+  }
+
+  //color note
+  colorNoteService(reqData:any) {
+    console.log(reqData);
+    
+
+
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization':  'Bearer ' + this.token		
+      })
+
+    }
+    return this.httpService.putservices(`Note/changeColor/${reqData.noteId}/${reqData.color}`,reqData,true,headers)
+  }
+
+  //delete forever
+
+  deleteforever(reqdata: any) {
+    console.log(reqdata);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+      
+    };
+    console.log("ganya",reqdata)
+    return this.httpService.deleteService( `Note/DeleteNote/?noteId=${reqdata.noteId}`,  true,header );
+    
   }
 }

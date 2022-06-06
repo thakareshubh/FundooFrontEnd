@@ -31,6 +31,7 @@ import { UpdateNoteComponent } from './component/update-note/update-note.compone
 import {MatDialogModule} from '@angular/material/dialog';
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { ArchieveComponent } from './component/archieve/archieve.component';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -57,7 +58,7 @@ import { ArchieveComponent } from './component/archieve/archieve.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatFormFieldModule,
+    MatFormFieldModule,MatSnackBarModule,
     MatCheckboxModule,
     MatButtonModule,
     FlexLayoutModule,FormsModule,

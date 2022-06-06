@@ -1,24 +1,38 @@
-<div fxlatout="row wrap"fxLayoutAlign="start center"  style="padding-left:-30px">
-    <img src="./../../../assets/titlebel.svg" >
-    <img src="./../.././../assets/plussicon.svg" >
-    <img src="./../../../assets/color.svg" >
-    <img src="../../../assets/imgicon.svg" >
+<div fxlatout="row wrap" fxLayoutAlign="start center" style="padding-left:-30px">
+    <img src="./../../../assets/titlebel.svg">
+    <img src="./../.././../assets/plussicon.svg">
 
-    <img src="../../.././assets/archive_.png"  (click)="archieve()">
     
+        <img style="background-color: transparent;border: none;" [matMenuTriggerFor]="aboveMenu" src="./../../../assets/color.svg">
+    
+    <mat-menu #aboveMenu="matMenu" x-Position="below">
+        <div class="pop">
+            <div *ngFor='let color of colorarray'>
+                <button style="background-color: transparent;border: none;" (click)="setColor(color)">
+                    <mat-icon [ngStyle]="{color:color}">circle</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-menu>
+
+    <img src="../../../assets/imgicon.svg">
+
+    <img src="../../.././assets/archive_.png" (click)="archieve()">
+
     <!-- <img src="./../../../assets/undo.svg" >
     <img src="./../../../assets/redo.svg" alt="img"> -->
     <div>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <img mat-icon-button [matMenuTriggerFor]="menu"  src="../.././../assets/more.svg"  >
-        </button>
+
+        
+
+        
+        <img mat-button [matMenuTriggerFor]="menu" src="../.././../assets/more.svg">
         <mat-menu #menu="matMenu">
             <button mat-menu-item style="margin-top: -20px;padding: -20px;" (click)="Deletenote()"> Delete note</button>
             <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Add Label</button>
-            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Add Drawing</button>
-            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Make a Copy</button>
-            <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Show a checkbox</button>
-            <button mat-menu-item style="margin-top: -10px;padding: -20px;"> Copy to Google Docs</button>
+
         </mat-menu>
     </div>
 </div>
+
+

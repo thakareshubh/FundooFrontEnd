@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-display',
@@ -8,9 +9,9 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  @Input()GetNote: any=[];
+  @Input()GetNote: any;
   
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private snav:MatSnackBar) { }
   
   ngOnInit(): void {
   }
@@ -24,6 +25,9 @@ export class DisplayComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.snav.open('delete note Successfully', '', {
+        duration: 3000,
+      })
       
     });
   }

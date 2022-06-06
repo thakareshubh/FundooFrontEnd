@@ -8,7 +8,7 @@ export class AuthgaurdServicesService {
   constructor() { }
   
   gettoken(){  
-    return !!localStorage.getItem("SeesionUser");  
+    return !!localStorage.getItem("token");  
     }  
 
 }

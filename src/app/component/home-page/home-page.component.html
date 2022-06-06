@@ -56,9 +56,9 @@
                             <img src="./../../../assets/account_circle_1.png" alt="img" class="icon">
                         </button>
                         <mat-menu #menu="matMenu">
-                            <button mat-menu-item>
+                            <button mat-menu-item (click)="logout()" routerLink="./login">
                                 <mat-icon>notifications_off</mat-icon>
-                                <span>Logout</span>
+                                <span >Logout</span>
                             </button>
                         </mat-menu>
                     </div>

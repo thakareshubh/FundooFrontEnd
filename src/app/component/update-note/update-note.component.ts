@@ -14,7 +14,7 @@ export class UpdateNoteComponent implements OnInit {
   updateDescription: any;
 	
 	noteId:any;
-
+  Color:any;
 
   constructor(
     public dialogRef: MatDialogRef<UpdateNoteComponent>,private update:NoteServiceService,
@@ -23,6 +23,7 @@ export class UpdateNoteComponent implements OnInit {
 		this.updateTitle = this.data.title;
     this.updateDescription = this.data.description;
     this.noteId= this.data.noteId;
+    this.Color = data.Color
   }
 
   ngOnInit(): void {

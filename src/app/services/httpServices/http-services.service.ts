@@ -37,4 +37,6 @@ baseurl=environment.baseUrl;
     return this.httpClient.get(this.baseurl+url,tokenRequired && httpOptions)
   }
 
+ 
+
 }

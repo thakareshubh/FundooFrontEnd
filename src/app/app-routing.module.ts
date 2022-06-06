@@ -12,20 +12,22 @@ import { ArchieveComponent } from './component/archieve/archieve.component';
 
 
 const routes: Routes = [
-  {path:'' ,redirectTo:"/login" ,pathMatch:'full'},
+  
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'resetPassword/:token',component:ResetPasswordComponent},
   {path:'forgetPassword',component:ForgetPasswordComponent},
- 
-  {path:'homePage',component: HomePageComponent,
+  
+  {path:'' ,redirectTo:"/login" ,pathMatch:'full'},
+  {path:'homePage',canActivate:[AuthguardnameGuard],component: HomePageComponent,
     children:
            [{path:'getAllNotes',component:GetAllNoteComponent},
            {path:'trash',component:TrashNoteComponent},
            {path:'archieve',component:ArchieveComponent},
           ]},
-  {path:'homePage',component:HomePageComponent,canActivate:[AuthguardnameGuard]},
+  // {path:'homePage',component:HomePageComponent,canActivate:[AuthguardnameGuard]},
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -2,7 +2,7 @@ import { NoteServiceService } from './../../services/NoteService/note-service.se
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-note',
@@ -16,7 +16,7 @@ export class CreateNoteComponent implements OnInit {
   token:any;
   
 
-  constructor( private activatedRoute:ActivatedRoute,private notes:NoteServiceService,private formBuilder: FormBuilder,) { }
+  constructor(private snav:MatSnackBar, private activatedRoute:ActivatedRoute,private notes:NoteServiceService,private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
     this.noteForm = this.formBuilder.group({
@@ -25,6 +25,9 @@ export class CreateNoteComponent implements OnInit {
      
     });
     this.token=this.activatedRoute.snapshot.paramMap.get('token')
+    this.snav.open('notes are ', '', {
+      duration: 3000,
+    })
   }
   hideAndShow(){
     console.log("calling hide")
@@ -45,7 +48,7 @@ export class CreateNoteComponent implements OnInit {
         console.log(response);
          
       
-      });
+      });window.location.reload();
       
 
       // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.noteForm.value));
