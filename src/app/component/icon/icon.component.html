@@ -1,11 +1,11 @@
-<div fxlatout="row wrap" fxLayoutAlign="start center" style="padding-left:-30px">
-    <img src="./../../../assets/titlebel.svg">
-    <img src="./../.././../assets/plussicon.svg">
+<div  fxlatout="row wrap" fxLayoutAlign="start center" style="padding-left:-30px">
+    <img *ngIf="!isTrash" src="./../../../assets/titlebel.svg">
+    <img *ngIf="!isTrash" src="./../.././../assets/plussicon.svg">
 
     
-        <img style="background-color: transparent;border: none;" [matMenuTriggerFor]="aboveMenu" src="./../../../assets/color.svg">
+        <img    *ngIf="!isTrash" style="background-color: transparent;border: none;" [matMenuTriggerFor]="aboveMenu" src="./../../../assets/color.svg">
     
-    <mat-menu #aboveMenu="matMenu" x-Position="below">
+    <mat-menu #aboveMenu="matMenu" yPosition="below">
         <div class="pop">
             <div *ngFor='let color of colorarray'>
                 <button style="background-color: transparent;border: none;" (click)="setColor(color)">
@@ -15,9 +15,11 @@
         </div>
     </mat-menu>
 
-    <img src="../../../assets/imgicon.svg">
+    <img *ngIf="!isTrash" src="../../../assets/imgicon.svg">
 
-    <img src="../../.././assets/archive_.png" (click)="archieve()">
+    <img *ngIf="!isTrash && !isArchieve"  src="../../.././assets/archive_.png" (click)="archieve()" >
+    <img src="../../../assets/unArchiveve.svg" alt="shubham" (click)=" Urchieve()" *ngIf="isArchieve">
+
 
     <!-- <img src="./../../../assets/undo.svg" >
     <img src="./../../../assets/redo.svg" alt="img"> -->
@@ -26,13 +28,21 @@
         
 
         
-        <img mat-button [matMenuTriggerFor]="menu" src="../.././../assets/more.svg">
+        <img *ngIf="!isTrash" mat-button [matMenuTriggerFor]="menu" src="../.././../assets/more.svg">
         <mat-menu #menu="matMenu">
-            <button mat-menu-item style="margin-top: -20px;padding: -20px;" (click)="Deletenote()"> Delete note</button>
+            <button mat-menu-item style="margin-top: -20px;padding: -20px;" (click)="Trashnote()"> Delete note</button>
             <button mat-menu-item style="margin-top: -20px;padding: -20px;"> Add Label</button>
 
         </mat-menu>
     </div>
 </div>
 
-
+<div *ngIf="isTrash" fxLayout="row" fxLayoutAlign="start end" 
+	style="margin-top: -10px;">
+		<button mat-icon-button (click)="DeletePermenet()"  ><img class="icons"
+				src="./../../../assets/permananetDelete.svg" alt="delete_forever">
+		</button>
+		<button mat-icon-button (click)="Restorenote()"><img class="icons"
+			src="./../../../assets/refresh2.svg" alt="restore">
+	</button>
+</div>

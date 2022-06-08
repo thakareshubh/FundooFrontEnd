@@ -27,10 +27,20 @@ export class IconComponent implements OnInit {
    {}
 
   ngOnInit(): void {
-   
+    // this.notelistId = [this.noteCard.noteId];
+    let del= this.activatedroute.snapshot.component;
+    if (del == TrashNoteComponent) {
+      this.isTrash = true;
+      console.log(this.isTrash);
+    }
+    if(del == ArchieveComponent)
+    {
+      this.isArchieve=true;
+      console.log(this.isArchieve);
+    }
   }
 
-  Deletenote() {
+  Trashnote() {
     // this.notelistId = [this.noteCard.noteId];
     let reqdata = {
       noteId: [this.noteCard.noteId],
@@ -70,11 +80,13 @@ export class IconComponent implements OnInit {
   }
   
   //color
-  setColor(color: any) {
-    this.notelistId = [this.noteCard.Color = color];
+  setColor(Color: any) {
+    // this.notelistId = [this.noteCard.Color = color];
     
-    let reqData = { color: color,
-                    noteId:this.noteCard.noteId};
+    let reqData={ 
+      noteId:this.noteCard.noteId,
+      Color:Color,
+    }   
     
     this.noteSrc.colorNoteService(reqData) .subscribe((res: any) => {
         console.log(res);
@@ -112,7 +124,47 @@ export class IconComponent implements OnInit {
           duration: 3000,
         })
       });
+      // window.location.reload()
+           
+  }
+
+  Restorenote() {
+    // this.notelistId = [this.noteCard.noteId];
+    let reqdata = {
+      noteId: [this.noteCard.noteId],
+
+      isTrash: false,
+    };
+    console.log('note is restore');
+    this.noteSrc
+      .deleteNote(reqdata)
+      .subscribe((response: any) => {
+        console.log('Restore Notes are :', response);
+        this.sanv.open('restore note Successfully', '', {
+          duration: 3000,
+        })
+      });
       window.location.reload()
            
+  }
+
+  //unArchive
+  Urchieve() {this.notelistId = this.noteCard.noteId;
+    let reqdata = {
+      noteId: [this.noteCard.noteId],
+
+      isArchieve: false,
+    };
+    console.log('note is unarchieve');
+    this.noteSrc
+      .archieveNote(reqdata, this.notelistId)
+      .subscribe((response: any) => {
+        console.log(response);
+        this.sanv.open('unarchieve  Successfully', '', {
+          duration: 3000,
+        })
+        
+      });
+      // window.location.reload();
   }
 }

@@ -1,8 +1,8 @@
 <div  style="width: 1200px;" class="mainContainer" fxFlex>
     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
         
-            <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="10">
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
                     <button mat-icon-button (click)="snav.toggle()" style="color: rgb(61, 58, 58);">
                         <mat-icon>menu</mat-icon>
                     </button>
@@ -19,13 +19,13 @@
                             <span style="color: rgb(141, 17, 17)">o</span>
                         </h3>
                     </div>
-                    <div style="padding-left: 60px;margin-bottom: 10px;">
+                    <div style="padding-left: 60px;margin-bottom: 10px;" fxFlex>
                         <mat-form-field appearance="outline">
                             <mat-icon style="color:rgb(61, 58, 58);font-size: x-large;vertical-align: middle;">search
                             </mat-icon>
                             <mat-label></mat-label>
                             <input matInput placeholder="Search"
-                                style="font-size:large;padding-left: 10px;vertical-align: middle;">
+                                style="font-size:large;padding-left: 10px;vertical-align: middle;" fxFlexAlign.md="width:200px">
 
                         </mat-form-field>
                     </div>
