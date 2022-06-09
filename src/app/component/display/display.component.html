@@ -1,6 +1,6 @@
 
 <div fxLayout="row" fxLayout="row wrap" style="width: 1000px;"   fxFlex >
-<mat-card  class="displayNote" *ngFor="let noteArr of GetNote " [style.background]="noteArr.Color">
+<mat-card  class="displayNote" *ngFor="let noteArr of GetNote | filterPipe:searchword" [style.background]="noteArr.color">
 <div>
 
     <div fxLayout="row" fxLayoutAlign="space-between" (click)="openDialog(noteArr)">

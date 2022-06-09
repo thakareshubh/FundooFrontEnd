@@ -109,13 +109,13 @@ export class NoteServiceService {
   colorNoteService(reqData:any) {
     console.log(reqData);
 
-    let headers = {
+    let header = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
         'Authorization':  'Bearer ' + this.token		
       })
     }
-    return this.httpService.putservices(`Note/changeColor/${reqData.noteId}/${reqData.color}`,{},true,headers)
+    return this.httpService.putservices(`Note/changeColor/${reqData.noteId}/${reqData.color}`,{},true,header)
   }
 
   //delete forever

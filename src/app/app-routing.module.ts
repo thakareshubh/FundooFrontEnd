@@ -1,3 +1,4 @@
+import { EditLableComponent } from './component/edit-lable/edit-lable.component';
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { GetAllNoteComponent } from './component/get-all-note/get-all-note.component';
 import { HomePageComponent } from './component/home-page/home-page.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
            [{path:'getAllNotes',component:GetAllNoteComponent},
            {path:'trash',component:TrashNoteComponent},
            {path:'archieve',component:ArchieveComponent},
+           {path:'lable',component:EditLableComponent}
           ]},
   // {path:'homePage',component:HomePageComponent,canActivate:[AuthguardnameGuard]},
 ];

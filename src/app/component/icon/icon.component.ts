@@ -1,7 +1,7 @@
 import { TrashNoteComponent } from './../trash-note/trash-note.component';
 import { ArchieveComponent } from './../archieve/archieve.component';
 import { ActivatedRoute } from '@angular/router';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteServiceService } from 'src/app/services/NoteService/note-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -18,7 +18,7 @@ export class IconComponent implements OnInit {
   noteId: any;
   isTrash:boolean=false;
   isArchieve:boolean=false;
-  
+  @Output() iconstodisplay = new EventEmitter<string>();
 
   constructor(
     private noteSrc: NoteServiceService,
@@ -51,16 +51,17 @@ export class IconComponent implements OnInit {
     this.noteSrc
       .deleteNote(reqdata)
       .subscribe((response: any) => {
+        this.iconstodisplay.emit(response);
         console.log('Deleted Notes are :', response);
         this.sanv.open('delete note Successfully', '', {
           duration: 3000,
         })
       });
-      window.location.reload()
+      // window.location.reload()
            
   }
 
-  archieve() {this.notelistId = this.noteCard.noteId;
+  archieve() { this.noteCard.noteId;
     let reqdata = {
       noteId: [this.noteCard.noteId],
 
@@ -70,6 +71,7 @@ export class IconComponent implements OnInit {
     this.noteSrc
       .archieveNote(reqdata, this.notelistId)
       .subscribe((response: any) => {
+        this.iconstodisplay.emit(response);
         console.log('Archieve Notes are :', response);
         this.sanv.open('archieve  Successfully', '', {
           duration: 3000,
@@ -81,15 +83,16 @@ export class IconComponent implements OnInit {
   
   //color
   setColor(Color: any) {
-    // this.notelistId = [this.noteCard.Color = color];
+    this.noteCard.color = Color;
     
     let reqData={ 
       noteId:this.noteCard.noteId,
-      Color:Color,
+      color:Color,
     }   
-    
+    console.log(reqData)
     this.noteSrc.colorNoteService(reqData) .subscribe((res: any) => {
         console.log(res);
+        this.iconstodisplay.emit(res);
         
           this.sanv.open('color changes Successfully', '', {
         duration: 3000,
@@ -97,16 +100,7 @@ export class IconComponent implements OnInit {
       });
       // window.location.reload();
   }
-  colorarray = [
-    '#fff',
-    '#f28b82',
-    '#fbbc04',
-    '#fff475',
-    '#ccff90',
-    '#a7ffeb',
-    '#cbf0f8',
-    '#aecbfa',
-  ];
+  colorarray = [{Colorcode:"pink"},{Colorcode:"yellow"},{Colorcode:"orange"},{Colorcode:"rgb(255,99,71)"},{Colorcode:"rgb(152,251,152)"},{Colorcode:"Teal"},{Colorcode:"rgb(106,90,205)"},{Colorcode:"rgb(240,230,140)"},{Colorcode:"rgb(238,130,238)"},{Colorcode:"rgb(255,160,122)"}];
 
   DeletePermenet() {
     // this.notelistId = [this.noteCard.noteId];
@@ -119,6 +113,7 @@ export class IconComponent implements OnInit {
     this.noteSrc
       .deleteforever(reqdata)
       .subscribe((response: any) => {
+        this.iconstodisplay.emit(response);
         console.log('Deleted Notes are :', response);
         this.sanv.open('delete note Successfully', '', {
           duration: 3000,
@@ -127,6 +122,8 @@ export class IconComponent implements OnInit {
       // window.location.reload()
            
   }
+
+  //restore note
 
   Restorenote() {
     // this.notelistId = [this.noteCard.noteId];
@@ -139,6 +136,7 @@ export class IconComponent implements OnInit {
     this.noteSrc
       .deleteNote(reqdata)
       .subscribe((response: any) => {
+        this.iconstodisplay.emit(response);
         console.log('Restore Notes are :', response);
         this.sanv.open('restore note Successfully', '', {
           duration: 3000,
@@ -159,6 +157,7 @@ export class IconComponent implements OnInit {
     this.noteSrc
       .archieveNote(reqdata, this.notelistId)
       .subscribe((response: any) => {
+        this.iconstodisplay.emit(response);
         console.log(response);
         this.sanv.open('unarchieve  Successfully', '', {
           duration: 3000,

@@ -1,4 +1,4 @@
 
-<app-create-note></app-create-note>
-<app-display [GetNote]="notesArray" ></app-display>
+<app-create-note (createToGetAllNotes)="receiveEvent($event)"></app-create-note>
+<app-display [GetNote]="notesArray" (displaytogetallnotes)="receiveMessagefromdisplaycard($event)"></app-display>
 

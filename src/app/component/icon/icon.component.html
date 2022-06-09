@@ -8,8 +8,9 @@
     <mat-menu #aboveMenu="matMenu" yPosition="below">
         <div class="pop">
             <div *ngFor='let color of colorarray'>
-                <button style="background-color: transparent;border: none;" (click)="setColor(color)">
-                    <mat-icon [ngStyle]="{color:color}">circle</mat-icon>
+                <button style="background-color: transparent;border: none;width: 40px;height: 40px;border-radius: 100%;"
+                [style.background]="color?.Colorcode" (click)="setColor(color?.Colorcode)">
+                    
                 </button>
             </div>
         </div>

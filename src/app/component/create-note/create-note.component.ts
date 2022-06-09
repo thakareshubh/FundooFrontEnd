@@ -1,5 +1,5 @@
 import { NoteServiceService } from './../../services/NoteService/note-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -14,7 +14,7 @@ export class CreateNoteComponent implements OnInit {
   noteForm!: FormGroup;
   submitted = false;
   token:any;
-  
+  @Output() createToGetAllNotes = new EventEmitter<string>()
 
   constructor(private snav:MatSnackBar, private activatedRoute:ActivatedRoute,private notes:NoteServiceService,private formBuilder: FormBuilder,) { }
 
@@ -48,7 +48,8 @@ export class CreateNoteComponent implements OnInit {
         console.log(response);
          
       
-      });window.location.reload();
+       });
+      //  window.location.reload();
       
 
       // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.noteForm.value));
