@@ -16,6 +16,7 @@ export class EditLableComponent implements OnInit {
   lableName:any;
   isLable:boolean =false;
   isDelete:boolean =false;
+  
   constructor(private lable:LableService,) { }
 
   hideAndShow(){

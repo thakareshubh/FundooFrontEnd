@@ -87,21 +87,21 @@
                         </a>
                     </mat-nav-list>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;"*ngFor="let LabelArr of GetLable" >
+                <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;"*ngFor="let LabelArr of lableArray" >
 
                     <mat-nav-list >
                         
                         <a  mat-list-item  >
-                            <img src="./../../../assets/done_labale.png" alt="img" class="icon"> {{LabelArr.lableName}}
+                            <img src="./../../../assets/done_labale.png" alt="img" class="icon"> {{LabelArr.labelName}}
                         </a>
                     </mat-nav-list>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;" >
 
-                    <mat-nav-list >
+                    <mat-nav-list  >
                         
                         <a  mat-list-item  (click)="openDialog()" >
-                            <img src="./../../../assets/edit_FILL0.png" alt="img" class="icon"> Edit Labels
+                            <img  src="./../../../assets/edit_FILL0.png" alt="img" class="icon"> Edit Labels
                         </a>
                     </mat-nav-list>
                 </div>

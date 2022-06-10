@@ -14,18 +14,19 @@
    -->
 <div>
     <span>Edit Label</span>
-    <div fxLayout="row" style="margin-top: 20px;">
+    <div fxLayout="row" style="margin-top: 20px;" fxLayoutAlign="space-between end">
 
         <div >
             <img *ngIf="!isLable"  (click)="hideAndShow()" src="../../../assets/add_lable.png" alt="">
+            <img *ngIf="isLable" (click)="hideAndShow()" src="../../../assets/close_lable.png" alt="">
         </div>
         <div fxLayout="row" *ngIf="isLable">
-            <img  (click)="hideAndShow()" src="../../../assets/close_lable.png" alt="">
+            
             <input matInput [(ngModel)]="lableName" placeholder="Create note">
             <img (click)=" onCreate()" src="../../../assets/done_labale.png" alt="">
         </div>
 
-    </div>
+    </div><br>
     <div  fxLayout="row" fxLayoutAlign="space-between end">
         <img src="../../../assets/newLable.png" alt="" (mouseover)="show()" *ngIf="!isDelete">
       <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/delete.png" alt="">

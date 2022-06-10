@@ -1,3 +1,4 @@
+import { LableService } from './../../Lable service/lable.service';
 import { EditLableComponent } from './../edit-lable/edit-lable.component';
 import { Router } from '@angular/router';
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
@@ -17,14 +18,18 @@ export class HomePageComponent implements OnInit {
   message:any;
   value:any;
 
-  @Input()GetLable: any;
+  userId:any;
+
+  lableArray:any=[];
+
+  
 
   
  
   private _mobileQueryListener: () => void;
   token: any;
 
-  constructor(private snav:MatSnackBar,public dialog: MatDialog,private data:DataPipeService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private rout:Router,private snackBar:MatSnackBar) {
+  constructor(private  getLable:LableService,private snav:MatSnackBar,public dialog: MatDialog,private data:DataPipeService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private rout:Router,private snackBar:MatSnackBar) {
     this.mobileQuery = media.matchMedia('(max-width: 00px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -32,6 +37,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.getAllLable();
     
   }
   searchtitle(event: any) {
@@ -56,9 +62,10 @@ export class HomePageComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditLableComponent, {
-      width: 'auto',
-      height:"auto",
+      width: '350px',
       
+      height:"auto",
+      data:this.lableArray
       
     });
 
@@ -69,6 +76,18 @@ export class HomePageComponent implements OnInit {
       })
       
     });
+}
 
-
-}}
+getAllLable() {   
+  
+  this.getLable.getAllLable().subscribe( (response: any) => {
+      this.lableArray = response.data;
+      console.log(response);
+      this.lableArray.reverse();
+    //   // this.notesArray = this.notesArray.filter((object: any) => {
+    //   // return object.isTrash=== false && object.isArchieve === false
+     
+    // })
+  })
+}
+}

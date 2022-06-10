@@ -14,6 +14,7 @@ token:any;
   createLabel(reqdata: any) {
     console.log(reqdata);
     console.log(this.token);
+    //  this.token=localStorage.getItem("token")
 
     let header = {
       headers: new HttpHeaders({
@@ -22,5 +23,20 @@ token:any;
       })
     }
     return this.httpService.postservices('Label/CreateLabel', reqdata, true, header)
+  }
+
+  getAllLable() {
+
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization':  'Bearer ' + this.token		
+      })
+
+    }
+    
+    return this.httpService.getService('Label/GetLabel',true,header)
+    
   }
 }
