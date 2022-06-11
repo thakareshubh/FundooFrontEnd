@@ -80,7 +80,8 @@ export class HomePageComponent implements OnInit {
 
 getAllLable() {   
   
-  this.getLable.getAllLable().subscribe( (response: any) => {
+  
+  this.getLable.getLable().subscribe( (response: any) => {
       this.lableArray = response.data;
       console.log(response);
       this.lableArray.reverse();

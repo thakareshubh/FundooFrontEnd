@@ -16,8 +16,9 @@ export class EditLableComponent implements OnInit {
   lableName:any;
   isLable:boolean =false;
   isDelete:boolean =false;
-  
-  constructor(private lable:LableService,) { }
+  lableArray:any=[];
+
+  constructor(private lable:LableService,private getLable:LableService) { }
 
   hideAndShow(){
     console.log("calling hide")
@@ -30,8 +31,10 @@ export class EditLableComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getAllLable();
   }
 
+  //create lable
   onCreate() {
     
 
@@ -48,6 +51,21 @@ export class EditLableComponent implements OnInit {
       
 
       // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.noteForm.value));
+    }
+
+    //get the lable
+    getAllLable() {   
+      
+      
+      this.getLable.getLable().subscribe( (response: any) => {
+          this.lableArray = response.data;
+          console.log(response);
+          this.lableArray.reverse();
+        //   // this.notesArray = this.notesArray.filter((object: any) => {
+        //   // return object.isTrash=== false && object.isArchieve === false
+         
+        // })
+      })
     }
   }
 

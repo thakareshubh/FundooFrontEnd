@@ -27,10 +27,10 @@
         </div>
 
     </div><br>
-    <div  fxLayout="row" fxLayoutAlign="space-between end">
+    <div  fxLayout="row" fxLayoutAlign="space-between end"  *ngFor="let LabelArr of lableArray">
         <img src="../../../assets/newLable.png" alt="" (mouseover)="show()" *ngIf="!isDelete">
       <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/delete.png" alt="">
-        {{lableName}}
+        {{LabelArr.labelName}}
         <img src="../../../assets/edit_FILL0.png" alt="">
 
     </div>

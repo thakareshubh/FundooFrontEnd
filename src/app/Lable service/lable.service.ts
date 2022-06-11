@@ -25,9 +25,11 @@ token:any;
     return this.httpService.postservices('Label/CreateLabel', reqdata, true, header)
   }
 
-  getAllLable() {
+  //get lable 
 
+  getLable() {
 
+    this.token=localStorage.getItem("token")
     let header = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
@@ -36,7 +38,7 @@ token:any;
 
     }
     
-    return this.httpService.getService('Label/GetLabel',true,header)
+    return this.httpService.getService('Label/GetLabelByuserId',true,header)
     
   }
 }
