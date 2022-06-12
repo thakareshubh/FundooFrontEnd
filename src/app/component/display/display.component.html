@@ -1,5 +1,5 @@
 
-<div fxLayout="row" fxLayout="row wrap" style="width: 1000px;"   fxFlex >
+<div fxLayout="row" fxLayout="row wrap" style="width: 1000px;"   fxFlex=100 >
 <mat-card  class="displayNote" *ngFor="let noteArr of GetNote | filterPipe:searchword" [style.background]="noteArr.color">
 <div>
 

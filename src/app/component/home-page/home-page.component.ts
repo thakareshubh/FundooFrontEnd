@@ -22,15 +22,11 @@ export class HomePageComponent implements OnInit {
 
   lableArray:any=[];
 
-  
-
-  
- 
   private _mobileQueryListener: () => void;
   token: any;
 
   constructor(private  getLable:LableService,private snav:MatSnackBar,public dialog: MatDialog,private data:DataPipeService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private rout:Router,private snackBar:MatSnackBar) {
-    this.mobileQuery = media.matchMedia('(max-width: 00px)');
+    this.mobileQuery = media.matchMedia('(max-width: 1000px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
@@ -62,7 +58,7 @@ export class HomePageComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditLableComponent, {
-      width: '350px',
+      width: '300px',
       
       height:"auto",
       data:this.lableArray

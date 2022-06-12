@@ -5,6 +5,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteServiceService } from 'src/app/services/NoteService/note-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',

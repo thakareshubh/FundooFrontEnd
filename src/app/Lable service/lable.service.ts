@@ -38,7 +38,45 @@ token:any;
 
     }
     
-    return this.httpService.getService('Label/GetLabelByuserId',true,header)
+    return this.httpService.getService('Label/Getlabel',true,header)
+    
+  }
+
+  //delete lable
+  deleteLabel(reqdata: any) {
+    console.log(reqdata);
+    this.token=localStorage.getItem("token")
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+      
+    };
+    
+    return this.httpService.deleteService( `Label/DeleteLabel/${reqdata.LabelId}`,  true,header );
+    
+  }
+
+  //edit Lable
+  editLabel(reqdata: any) {
+    console.log(reqdata);
+    this.token=localStorage.getItem("token")
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+      
+    };
+    
+    return this.httpService.putservices( `Label/UpdateLabel/${reqdata.LabelId}/${reqdata.LabelName}`, reqdata, true,header );
     
   }
 }

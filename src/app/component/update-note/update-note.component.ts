@@ -37,7 +37,7 @@ export class UpdateNoteComponent implements OnInit {
       let reqdata = {
         title: this.updateTitle,
         description: this.updateDescription,
-        color: "blue",
+        color: "",
       };
       this.update.updatenote(reqdata,this.noteId).subscribe((response: any) => {
         console.log("note is updated:  ",response);

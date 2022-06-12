@@ -16,22 +16,53 @@
     <span>Edit Label</span>
     <div fxLayout="row" style="margin-top: 20px;" fxLayoutAlign="space-between end">
 
-        <div >
-            <img *ngIf="!isLable"  (click)="hideAndShow()" src="../../../assets/add_lable.png" alt="">
+        <div>
+            <img *ngIf="!isLable" (click)="hideAndShow()" src="../../../assets/add_lable.png" alt="">
             <img *ngIf="isLable" (click)="hideAndShow()" src="../../../assets/close_lable.png" alt="">
         </div>
         <div fxLayout="row" *ngIf="isLable">
-            
+
             <input matInput [(ngModel)]="lableName" placeholder="Create note">
             <img (click)=" onCreate()" src="../../../assets/done_labale.png" alt="">
         </div>
 
     </div><br>
-    <div  fxLayout="row" fxLayoutAlign="space-between end"  *ngFor="let LabelArr of lableArray">
-        <img src="../../../assets/newLable.png" alt="" (mouseover)="show()" *ngIf="!isDelete">
-      <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/delete.png" alt="">
-        {{LabelArr.labelName}}
-        <img src="../../../assets/edit_FILL0.png" alt="">
+    <div *ngIf="!isEdit">
+        <div fxLayout="row" fxLayoutAlign="space-between end" *ngFor="let LabelArr of lableArray">
 
+            <img src="../../../assets/newLable.png" alt="" (mouseover)="show()" *ngIf="!isDelete">
+
+
+            <img (mouseout)="show()" *ngIf="isDelete || isEdit" src="../../../assets/delete.png" alt=""
+                (click)="DeleteLable(LabelArr.labelId)">
+            <div >
+                {{LabelArr.labelName}}
+            </div>
+
+
+
+            <img src="../../../assets/edit_FILL0.png" alt="" *ngIf="!isEdit" (click)="edit()">
+        </div>
     </div>
+    <div *ngIf="isEdit">
+        <div fxLayout="row" fxLayoutAlign="space-between end" *ngFor="let LabelArr of lableArray">
+
+            <img src="../../../assets/newLable.png" alt="" (mouseover)="show()" *ngIf="!isDelete">
+
+
+            <img (mouseout)="show()" *ngIf="isDelete || isEdit" src="../../../assets/delete.png" alt=""
+                (click)="DeleteLable(LabelArr.labelId)">
+            <div>
+                <input matInput [(ngModel)]="lableName" placeholder="edit note">
+            </div>
+
+
+            <img src="../../../assets/done_labale.png" alt="" 
+                (click)="updateLable(LabelArr)"(click)="edit()">
+
+        </div>
+    </div>
+    <!-- <div>
+            <input matInput [(ngModel)]="lableName" placeholder="edit note" *ngIf="isEdit">
+        </div> -->
 </div>

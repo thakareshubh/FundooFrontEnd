@@ -16,9 +16,14 @@ export class EditLableComponent implements OnInit {
   lableName:any;
   isLable:boolean =false;
   isDelete:boolean =false;
-  lableArray:any=[];
+  @Input()lableArray:any=[];
+  LabelId:any
+  isEdit:boolean=false;
+  
 
   constructor(private lable:LableService,private getLable:LableService) { }
+
+  edit(){this.isEdit=!this.isEdit}
 
   hideAndShow(){
     console.log("calling hide")
@@ -67,5 +72,46 @@ export class EditLableComponent implements OnInit {
         // })
       })
     }
-  }
 
+    //delete lable
+    DeleteLable(labelId:any) {  
+      
+      let reqdata={
+        LabelId:labelId,
+       
+      }
+      console.log(reqdata)
+      
+      this.getLable.deleteLabel(reqdata).subscribe( (response: any) => {
+        console.log("lable")
+          console.log(response);
+          
+        //   // this.notesArray = this.notesArray.filter((object: any) => {
+        //   // return object.isTrash=== false && object.isArchieve === false
+         
+        // })
+      });
+    }
+
+    //edit lable
+    updateLable(LabelArr:any) {  
+      
+      let reqdata={
+      
+        LabelName:LabelArr.lableName,
+        LabelId:LabelArr.labelId,
+       
+      }
+      console.log(reqdata)
+      
+      this.getLable.editLabel(reqdata).subscribe( (response: any) => {
+        console.log("lable")
+          console.log(response);
+          
+        //   // this.notesArray = this.notesArray.filter((object: any) => {
+        //   // return object.isTrash=== false && object.isArchieve === false
+         
+        // })
+      })
+  }
+}
