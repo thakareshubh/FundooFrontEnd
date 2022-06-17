@@ -1,5 +1,5 @@
 import { LableService } from './../../Lable service/lable.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 // export interface DialogData {
 //   animal: string;
 //   name: string;
@@ -19,6 +19,7 @@ export class EditLableComponent implements OnInit {
   @Input()lableArray:any=[];
   LabelId:any
   isEdit:boolean=false;
+  @Output() labledisplay = new EventEmitter<string>();
   
 
   constructor(private lable:LableService,private getLable:LableService) { }
@@ -50,6 +51,7 @@ export class EditLableComponent implements OnInit {
       };
       this.lable.createLabel(reqdata).subscribe((response:any)=>{
         console.log(response);
+        this.labledisplay.emit(response);
          
       
       });
@@ -85,6 +87,7 @@ export class EditLableComponent implements OnInit {
       this.getLable.deleteLabel(reqdata).subscribe( (response: any) => {
         console.log("lable")
           console.log(response);
+          this.labledisplay.emit(response);
           
         //   // this.notesArray = this.notesArray.filter((object: any) => {
         //   // return object.isTrash=== false && object.isArchieve === false
@@ -107,6 +110,7 @@ export class EditLableComponent implements OnInit {
       this.getLable.editLabel(reqdata).subscribe( (response: any) => {
         console.log("lable")
           console.log(response);
+          this.labledisplay.emit(response);
           
         //   // this.notesArray = this.notesArray.filter((object: any) => {
         //   // return object.isTrash=== false && object.isArchieve === false

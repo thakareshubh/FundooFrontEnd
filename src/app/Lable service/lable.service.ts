@@ -29,7 +29,7 @@ token:any;
 
   getLable() {
 
-    this.token=localStorage.getItem("token")
+    this.token=localStorage.getItem("token");
     let header = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',

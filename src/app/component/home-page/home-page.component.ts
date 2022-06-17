@@ -1,7 +1,7 @@
 import { LableService } from './../../Lable service/lable.service';
 import { EditLableComponent } from './../edit-lable/edit-lable.component';
 import { Router } from '@angular/router';
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSnackBar} from '@angular/material/snack-bar';
 import { DataPipeService } from 'src/app/services/data-pipe.service';
@@ -17,6 +17,9 @@ export class HomePageComponent implements OnInit {
   filterdString:string='';
   message:any;
   value:any;
+  
+ 
+  sentmsg:any;
 
   userId:any;
 
@@ -86,5 +89,11 @@ getAllLable() {
      
     // })
   })
+}
+recievefromiconstodisplaycard($event: any) {
+  console.log("recievedindisplay", $event);
+  this.sentmsg = $event
+  
+
 }
 }

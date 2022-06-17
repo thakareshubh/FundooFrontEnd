@@ -46,7 +46,7 @@ export class CreateNoteComponent implements OnInit {
       };
       this.notes.createnote(reqdata,).subscribe((response:any)=>{
         console.log(response);
-         
+        this.createToGetAllNotes.emit(response)
       
        });
       //  window.location.reload();
@@ -55,4 +55,5 @@ export class CreateNoteComponent implements OnInit {
       // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.noteForm.value));
     }
   }
+ 
 }

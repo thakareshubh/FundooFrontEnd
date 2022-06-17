@@ -1,11 +1,14 @@
 .input{
     width:450px;
-    padding:8px ;
+    padding:10px ;
     border: none;
     border-radius: 5px;
     font-size: 20px;
     outline: none;
-    background-color:rgb(242, 234, 234)
+    background-color:rgb(242, 234, 234);
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
     
   }
   .secondimg img{
@@ -15,10 +18,10 @@
     padding-top: 5px;
   }
   .container{
-  width:620px; background-color:rgb(242, 234, 234); border-radius: 7px; box-shadow: 2px 5px 10px 9px solid rgb(223, 162, 162);
+  width:620px;display: block; background-color:rgb(242, 234, 234); border-radius: 7px; box-shadow: 2px 5px 10px 9px solid rgb(223, 162, 162);
 }
 .container1
 {
-  height: 30px; padding: 10px 15px; font-size: medium;
+  height: 25px; padding: 10px 15px; font-size: medium;
   margin-bottom: 10px;
 }

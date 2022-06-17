@@ -1,16 +1,16 @@
 <div>
     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" fxFlex=100>
 
-        <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex=20>
-                <button mat-icon-button (click)="snav.toggle()" style="color: rgb(61, 58, 58);" fxFlex=20>
+        <mat-toolbar color="white" class="example-toolbar" fxLayout="row" fxLayoutAlign="space-between center" >
+            <div fxLayout="row" fxLayoutAlign=" center" >
+                <button mat-icon-button (click)="snav.toggle()" style="color: rgb(61, 58, 58);">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <div fxHide="600px" fxFlex=20>
+                <div fxHide.xs>
                     <img src="../../../assets/keep_2020q4_48dp.png" alt="img">
                 </div>
-                <div fxFlex.lt-sm="font-size=10px">
-                    <h3 style="font-size: 30px; font-style: inherit">
+                <div>
+                    <h3 class="fundoo" style="font-size: 30px; font-style: inherit">
                         <span style="color: rgb(44, 44, 230)">F</span>
                         <span style="color: rgb(216, 65, 65)">u</span>
                         <span style="color: rgb(219, 154, 32)">n</span>
@@ -20,59 +20,59 @@
                     </h3>
                 </div>
             </div>
-            <div fxFlex="60">
-                <div style="padding-left: 60px;margin-bottom: 10px;" fxFlex=100>
-                    <mat-form-field appearance="outline" fxFlex=100>
-                        <mat-icon style="color:rgb(61, 58, 58);font-size: x-large;vertical-align: middle;">search
+            <div fxFlex style="padding-left: 40px;position: relative;">
+                <div style="margin-bottom: 10px;"fxFlex=100  >
+                    <mat-form-field appearance="outline" fxHide.xs fxFlex=100>
+                        <mat-icon fxShow.xs style="color:rgb(61, 58, 58);font-size: x-large;vertical-align: middle;">search
                         </mat-icon>
 
                         <input (keyup)=" searchtitle($event)" matInput placeholder="Search"
-                            style="font-size:large;padding-left: 10px;vertical-align: middle;"
-                            fxFlexAlign.md="width:200px" fxFlex=90>
+                            style="font-size:large;padding-left: 10px;vertical-align: middle;" fxFlex=100>
 
                     </mat-form-field>
                 </div>
             </div>
-            <div fxLayout="row" fxLayoutAlign="space-between " style="color:rgb(61, 58, 58);margin-left: 100px;"
-                fxFlex=20>
-                <div fxFlex=33>
-                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                        <img src="./../../../assets/refresh_FILL0_.png" alt="img" class="icon">
-                    </button>
+            <div fxLayout="row" fxLayoutAlign="space-between ">
+                <div fxLayout="row" fxLayoutAlign="space-between " style="color:rgb(61, 58, 58);margin-right: 60px;"
+                    fxflex=100>
+                    <div fxFlex=33>
+                        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                            <img src="./../../../assets/refresh_FILL0_.png" alt="img" class="icon">
+                        </button>
+                    </div>
+                    <div fxFlex=33>
+                        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                            <img src="./../../../assets/view_agenda_.png" alt="img" class="icon">
+                        </button>
+                    </div>
+                    <div fxFlex=33>
+                        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                            <img src="./../../../assets/settings_.png" alt="img" class="icon">
+                        </button>
+                    </div>
                 </div>
-                <div fxFlex=33>
+                <div fxLayout="row" fxLayoutAlign="space-between  " style="color:rgb(61, 58, 58); " fxFlex>
                     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                        <img src="./../../../assets/view_agenda_.png" alt="img" class="icon">
+                        <img src="./../../../assets/appslogo.png" alt="img" class="icon">
                     </button>
-                </div>
-                <div fxFlex=33>
-                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                        <img src="./../../../assets/settings_.png" alt="img" class="icon">
-                    </button>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between  " fxFlex
-                style="color:rgb(61, 58, 58);padding-left: 90px; ">
-                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-                    <img src="./../../../assets/appslogo.png" alt="img" class="icon">
-                </button>
-                <div>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <img src="./../../../assets/account_circle_1.png" alt="img" class="icon">
-                    </button>
-                    <mat-menu #menu="matMenu">
+                    <div>
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <img src="./../../../assets/account_circle_1.png" alt="img" class="icon">
+                        </button>
+                        <mat-menu #menu="matMenu">
 
-                        <img (click)="logout()" routerLink="./login"
-                            src="../../../assets/settings_power_FILL0_wght400_GRAD0_opsz48.png" alt="">
+                            <img (click)="logout()" routerLink="./login"
+                                src="../../../assets/settings_power_FILL0_wght400_GRAD0_opsz48.png" alt="">
 
 
-                    </mat-menu>
+                        </mat-menu>
+                    </div>
                 </div>
             </div>
         </mat-toolbar>
 
 
-        <mat-sidenav-container class="example-sidenav-container" >
+        <mat-sidenav-container class="example-sidenav-container">
             <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" class="exampleSide">
                 <div class="sidenave">
                     <div fxLayout="row" fxLayoutAlign="start center" style="vertical-align: center;">
@@ -129,7 +129,7 @@
                 </div>
             </mat-sidenav>
 
-            <mat-sidenav-content>
+            <mat-sidenav-content style="margin-top: 30px; padding-left: -10px;">
                 <router-outlet></router-outlet>
             </mat-sidenav-content>
         </mat-sidenav-container>

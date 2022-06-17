@@ -27,7 +27,14 @@ export class ArchieveComponent implements OnInit {
       })
      
     });
+   
+  
+  }
+  receiveMessagefromdisplaycard($event: any) {
+    console.log("insidegetallnotes", $event);
+    this. getArchiveList();
+  }
 
   }
 
-}
+

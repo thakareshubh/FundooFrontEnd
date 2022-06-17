@@ -12,6 +12,7 @@ import { DataPipeService } from 'src/app/services/data-pipe.service';
 export class DisplayComponent implements OnInit {
   @Input()GetNote: any;
   @Output() displaytogetallnotes=new EventEmitter<string>()
+  @Output() noteUpdated = new EventEmitter<any>();
   subscription:any;
   searchword:any;
   message:any;
@@ -36,6 +37,8 @@ export class DisplayComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.noteUpdated.emit(result);
+      
       this.snav.open('edit note Successfully', '', {
         duration: 3000,
       })
@@ -47,5 +50,9 @@ export class DisplayComponent implements OnInit {
     this.sentmsg = $event
     this.displaytogetallnotes.emit(this.sentmsg)
 
-}
+
+  }
+  operation(value: any) {
+    this.noteUpdated.emit(value);
+  }
 }

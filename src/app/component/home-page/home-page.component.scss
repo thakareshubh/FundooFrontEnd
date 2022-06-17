@@ -6,6 +6,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    right: 0;
+    left: 0;
    
     background-color: rgb(244, 242, 242);
    
@@ -16,11 +18,12 @@
       border-top: 1px solid gray;
       border-bottom: 1px solid rgb(128, 123, 123);
       height: 60px;
-      padding-bottom: 5px;
+      padding-bottom: 3px;
+      padding-top: 5px;
       position: relative;
       vertical-align: middle;
-      // text-rendering: optimizeLegibility;
-      // -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
 
       
   }
@@ -75,15 +78,16 @@
   .mat-nav-list{
       width: 250px;
   }
-  .sidenave{
+  // .sidenave{
       
-      height: 100%;
-  }
+      
+  // }
   
   .example-is-mobile .example-sidenav-container {
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
+    margin-top: 60PX;
   }
   @media (min-width: 360px) and (max-width: 700px)
   {
@@ -95,6 +99,16 @@
       position: relative;
       vertical-align: middle;
       text-rendering: optimizeLegibility;
+    }
+
+    .fundoo{
+      font-size: 30px; font-style: inherit;
+    }
+    @media (width: 660px) {
+      .fundoo{
+        font-size: 20px;
+      }
+
     }
   }
  

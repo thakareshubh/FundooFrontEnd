@@ -44,13 +44,13 @@
             <img src="../../../assets/edit_FILL0.png" alt="" *ngIf="!isEdit" (click)="edit()">
         </div>
     </div>
-    <div *ngIf="isEdit">
+    <!-- <div *ngIf="isEdit">
         <div fxLayout="row" fxLayoutAlign="space-between end" *ngFor="let LabelArr of lableArray">
 
             <img src="../../../assets/newLable.png" alt="" (mouseover)="show()" *ngIf="!isDelete">
 
 
-            <img (mouseout)="show()" *ngIf="isDelete || isEdit" src="../../../assets/delete.png" alt=""
+            <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/delete.png" alt=""
                 (click)="DeleteLable(LabelArr.labelId)">
             <div>
                 <input matInput [(ngModel)]="lableName" placeholder="edit note">
@@ -61,7 +61,7 @@
                 (click)="updateLable(LabelArr)"(click)="edit()">
 
         </div>
-    </div>
+    </div> -->
     <!-- <div>
             <input matInput [(ngModel)]="lableName" placeholder="edit note" *ngIf="isEdit">
         </div> -->

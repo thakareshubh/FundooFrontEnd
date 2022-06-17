@@ -1,18 +1,21 @@
+<div fxLayout="row" fxLayout="row wrap" style="width: 1000px;" fxFlex=100>
+    <mat-card class="displayNote" *ngFor="let noteArr of GetNote | filterPipe:searchword"
+        [style.background]="noteArr.color" fxFlex.xs="90">
+        <div>
 
-<div fxLayout="row" fxLayout="row wrap" style="width: 1000px;"   fxFlex=100 >
-<mat-card  class="displayNote" *ngFor="let noteArr of GetNote | filterPipe:searchword" [style.background]="noteArr.color">
-<div>
-
-    <div fxLayout="row" fxLayoutAlign="space-between" (click)="openDialog(noteArr)">
-        {{noteArr.title}}
-        <img src="./../../../assets/pin.svg" alt="" style=" width: 20px;height: 20px;">
-    </div>
-    <div (click)="openDialog(noteArr)" style="margin-top: 10px;">
-        {{noteArr.description}}
-    </div><br>
+            <div fxLayout="row" fxLayoutAlign="space-between" (click)="openDialog(noteArr)">
+                {{noteArr.title}}
+                <img src="./../../../assets/pin.svg" alt="" style=" width: 20px;height: 20px;">
+            </div>
+            <div (click)="openDialog(noteArr)" style="margin-top: 10px;">
+                {{noteArr.description}}
+            </div><br>
 
 
-    <div style="padding-left: -20px;" > <app-icon [noteCard]="noteArr"  (iconstodisplay)="recievefromiconstodisplaycard($event)"></app-icon></div>
-</div>
-</mat-card>
+            <div style="padding-left: -20px;">
+                <app-icon [noteCard]="noteArr" (iconstodisplay)="recievefromiconstodisplaycard($event)"
+                    [noteCard]="noteArr" (noteOperation)="operation($event)" ></app-icon>
+            </div>
+        </div>
+    </mat-card>
 </div>

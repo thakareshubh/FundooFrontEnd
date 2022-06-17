@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import {MatDialog,  MatDialogRef, MAT_DIALOG_DATA,} from '@angular/material/dialog';
 import { NoteServiceService } from 'src/app/services/NoteService/note-service.service';
@@ -12,6 +12,7 @@ import { DisplayComponent } from '../display/display.component';
 export class UpdateNoteComponent implements OnInit {
   updateTitle: any;
   updateDescription: any;
+  @Output() updatedisplay = new EventEmitter<string>();
 	
 	noteId:any;
   Color:any;
@@ -37,13 +38,15 @@ export class UpdateNoteComponent implements OnInit {
       let reqdata = {
         title: this.updateTitle,
         description: this.updateDescription,
-        color: "",
+        color:this.Color,
       };
       this.update.updatenote(reqdata,this.noteId).subscribe((response: any) => {
         console.log("note is updated:  ",response);
+        this.updatedisplay.emit(response);
       });
 
       // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.noteForm.value));
     
   }
+  
 }

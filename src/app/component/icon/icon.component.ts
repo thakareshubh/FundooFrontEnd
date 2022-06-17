@@ -62,7 +62,7 @@ export class IconComponent implements OnInit {
            
   }
 
-  archieve() { this.noteCard.noteId;
+  archieve() { this.notelistId = [this.noteCard.noteId];
     let reqdata = {
       noteId: [this.noteCard.noteId],
 
@@ -79,7 +79,7 @@ export class IconComponent implements OnInit {
         })
         
       });
-      window.location.reload();
+      // window.location.reload();
   }
   
   //color
@@ -143,7 +143,7 @@ export class IconComponent implements OnInit {
           duration: 3000,
         })
       });
-      window.location.reload()
+      // window.location.reload()
            
   }
 
